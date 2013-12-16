@@ -33,62 +33,66 @@ max version "3.12.99"
 
 declare phenomenon material "carpaint_x_elements" (
 	struct "struct_color" {
-        color		"ambient"						default 0 0 0,
-        color		"base_color"					default 0.8 0.1 0,
-        color		"edge_color"					default 0 0 0,
-        scalar	"edge_color_bias"				default 1.0,
-        color		"lit_color"						default 0.6 0 0.2,
-        scalar	"lit_color_bias"					default 8.0,
-        scalar	"diffuse_weight"				default 1.0,
-        scalar	"diffuse_bias"					default 1.5
+        color	"ambient"					default 0 0 0,
+        color	"base_color"				default 0.8 0.1 0,
+        color 	"edge_color"				default 0 0 0,
+        scalar 	"edge_color_bias"			default 1.0,
+        color 	"lit_color"					default 0.6 0 0.2,
+        scalar	"lit_color_bias"			default 8.0,
+        scalar	"diffuse_weight"			default 1.0,
+        scalar	"diffuse_bias"				default 1.5
         },
 	struct "struct_flake" {
-		color		"flake_color"					default 1 1 1,
-        scalar	"flake_weight"					default 1.0,
-        scalar	"flake_reflect"					default 0.0,
-        scalar	"flake_exp"						default 45.0,
-        scalar	"flake_density"					default  0.5,
-        scalar	"flake_decay"					default  0.0,
-        scalar	"flake_strength"				default  0.8,
-        scalar	"flake_scale"					default 0.12
+		color	"flake_color"				default 1 1 1,
+        scalar	"flake_weight"				default 1.0,
+        scalar	"flake_reflect"				default 0.0,
+        scalar	"flake_exp"					default 45.0,
+        scalar	"flake_density"				default  0.5,
+        scalar	"flake_decay"				default  0.0,
+        scalar	"flake_strength"			default  0.8,
+        scalar	"flake_scale"				default 0.12
 		},
 	struct "struct_spec" {
-		color		"spec"							default 1 1 1,         
-        scalar	"spec_weight"					default 0.2,      
-        scalar	"spec_exp"						default 60.0,         
-        color		"spec_sec"						default 1 1 1,
+		color	"spec"						default 1 1 1,         
+        scalar	"spec_weight"				default 0.2,      
+        scalar	"spec_exp"					default 60.0,         
+        color 	"spec_sec"					default 1 1 1,
         scalar	"spec_sec_weight"			default 0.3,  
         scalar	"spec_sec_exp"				default 25.0,     
-        boolean	"spec_glazing"					default on
+        boolean	"spec_glazing"				default on
 		},
 	struct "struct_refl" {
-		color		"reflection_color"				default 1 1 1,
-        scalar	"edge_factor"					default 7.0,    
+		color	"reflection_color"			default 1 1 1,
+        scalar	"edge_factor"				default 7.0,    
         scalar	"reflection_edge_weight"	default 1.0,
         scalar	"reflection_base_weight"	default 0.2,
-        integer	"samples"						default 0,
+        integer	"samples"					default 0,
         scalar	"glossy_spread"				default 0.0,
         scalar	"max_distance"				default 0.0,
         boolean	"single_env_sample"			default off
 		},
 	struct "struct_dirt" {
-		color		"dirt_color"						default .3 .3 .3,
-        scalar	"dirt_weight"					default 0.0
+		color	"dirt_color"				default .3 .3 .3,
+        scalar	"dirt_weight"				default 0.0
 		},
 	struct "struct_passes" {
 		boolean	"enable_passes",
-		string		"result_pass",							#main output
-        string		"ambient_pass",
-        string		"diffuse_pass",
-        string		"indirect_pass",
-        string		"spec1_pass",
-        string		"spec2_pass",
-        string		"flake_pass",
-        string		"flake_refl_pass",
-        string		"reflection_pass",
-        string		"dirt_pass"
+		string	"result_pass",				#main output
+        string	"ambient_pass",
+        string	"diffuse_pass",
+        string	"indirect_pass",
+        string	"spec1_pass",
+        string	"spec2_pass",
+        string	"flake_pass",
+        string	"flake_refl_pass",
+        string	"reflection_pass",
+        string	"dirt_pass",
+		color	"extra_pass1_color",
+		string	"extra_pass1",
+		color	"extra_pass2_color",
+		string	"extra_pass2"
 		},
-	struct "struct_light" {	
+	struct "struct_light" {
 		scalar	"irradiance_weight"			default 1.0,
 		scalar	"global_weight"				default 1.0,
 		integer	"mode",
@@ -108,7 +112,7 @@ declare phenomenon material "carpaint_x_elements" (
         "edge_color"					= interface "struct_color.edge_color",
         "edge_color_bias"				= interface "struct_color.edge_color_bias",
         "lit_color"						= interface "struct_color.lit_color",
-        "lit_color_bias"					= interface "struct_color.lit_color_bias",
+        "lit_color_bias"				= interface "struct_color.lit_color_bias",
         "diffuse_weight"				= interface "struct_color.diffuse_weight",
         "diffuse_bias"					= interface "struct_color.diffuse_bias",
         
@@ -123,34 +127,34 @@ declare phenomenon material "carpaint_x_elements" (
         "spec_weight"					= interface "struct_spec.spec_weight",
         "spec_exp"						= interface "struct_spec.spec_exp",
         "spec_sec"						= interface "struct_spec.spec_sec",
-        "spec_sec_weight"			= interface "struct_spec.spec_sec_weight",
-        "spec_sec_exp"				= interface "struct_spec.spec_sec_exp",
+        "spec_sec_weight"				= interface "struct_spec.spec_sec_weight",
+        "spec_sec_exp"					= interface "struct_spec.spec_sec_exp",
         "spec_glazing"					= interface "struct_spec.spec_glazing",                     
 
-        "irradiance_weight"			= interface "struct_light.irradiance_weight",
-        "global_weight"				= interface "struct_light.global_weight",
+        "irradiance_weight"				= interface "struct_light.irradiance_weight",
+        "global_weight"					= interface "struct_light.global_weight",
 
         "mode"							= interface "struct_light.mode",
-        "lights"							= interface "struct_light.lights"
+        "lights"						= interface "struct_light.lights"
 		)
 		
     shader "reflection" "mib_glossy_reflection" (
         "reflection_color"				1 1 1,
-        "environment_color"			1 1 1,
-        "reflection_base_weight"	= interface "struct_refl.reflection_base_weight",
-        "reflection_edge_weight"	= interface "struct_refl.reflection_edge_weight",
+        "environment_color"				1 1 1,
+        "reflection_base_weight"		= interface "struct_refl.reflection_base_weight",
+        "reflection_edge_weight"		= interface "struct_refl.reflection_edge_weight",
         "edge_factor"					= interface "struct_refl.edge_factor",
         "samples"						= interface "struct_refl.samples",
         "u_spread"						= interface "struct_refl.glossy_spread",
         "v_spread"						= interface "struct_refl.glossy_spread",
-        "max_distance"				= interface "struct_refl.max_distance",
-        "single_env_sample"			= interface "struct_refl.single_env_sample"
+        "max_distance"					= interface "struct_refl.max_distance",
+        "single_env_sample"				= interface "struct_refl.single_env_sample"
 		)
 		
     shader "dirtlayer" "mib_illum_lambert" (
         "diffuse" 						1 1 1,
         "mode"							= interface "struct_light.mode",
-        "lights"							= interface "struct_light.lights"
+        "lights"						= interface "struct_light.lights"
 		)
 		
     shader "resultmixer" "mi_metallic_paint_output_mixer" (
@@ -158,7 +162,7 @@ declare phenomenon material "carpaint_x_elements" (
         "reflection_raw"				= "reflection",
         "reflection_color"				= interface "struct_refl.reflection_color",
         "dirt_raw"						= "dirtlayer",
-        "dirt_color"						= interface "struct_dirt.dirt_color",
+        "dirt_color"					= interface "struct_dirt.dirt_color",
         "dirt_mix"						= interface "struct_dirt.dirt_weight",
 		)
 		
@@ -202,9 +206,17 @@ declare phenomenon material "carpaint_x_elements" (
 		"input"							= "resultmixer.dirt_result",
 		"label"							= interface "struct_passes.dirt_pass" 
 		)
+	shader "store_element_extra1" "max_mrStoreElement" (
+		"input"							= interface "struct_passes.extra_pass1_color",
+		"label"							= interface "struct_passes.extra_pass1" 
+		)
+	shader "store_element_extra2" "max_mrStoreElement" (
+		"input"							= interface "struct_passes.extra_pass2_color",
+		"label"							= interface "struct_passes.extra_pass2"
+		)
 
 	shader "mixer_sub" "mib_color_mix" (
-		"num"								7,
+		"num"							7,
 		"weight_0" 						0,
 		"weight_1" 						0,
 		"weight_2" 						0,
@@ -222,21 +234,25 @@ declare phenomenon material "carpaint_x_elements" (
 		)
 		
 	shader "mixer_main" "mib_color_mix" (
-		"num"								4,
+		"num"							6,
 		"weight_0" 						0,
 		"weight_1" 						0,
 		"weight_2" 						0,
-		"weight_3" 						1,
+		"weight_3" 						0,
+		"weight_4" 						0,
+		"weight_5" 						1,
 		"color_0"  						= "mixer_sub",
 		"color_1"  						= "store_element_reflection",
 		"color_2" 						= "store_element_dirt",
-		"color_3" 						= "store_element_result"
+		"color_3" 						= "store_element_extra1",
+		"color_4" 						= "store_element_extra2",
+		"color_5" 						= "store_element_result"
 		)
 		
 	shader "store_elements" "max_mrStoreElements" (
 		"main_input" 					= "mixer_main",
 		"main_label" 					"buffmaindb",
-		"apply_render_elements" 	= interface "struct_passes.enable_passes"
+		"apply_render_elements" 		= interface "struct_passes.enable_passes"
 		)
 		
 material "carpaintXE" 
@@ -276,7 +292,7 @@ gui "gui_carpaint_x_elements" {
 		control "spec_sec" "color" ("uiName" "Specular Color #2","value" 1 1 1)
 		control "spec_sec_weight" "scalar" ("uiName" "Specular Weight #2", "value" 0.3)
 		control "spec_sec_exp" "scalar" ("uiName" "Specular Exponent #2", "value" 25.0)
-		control "spec_glazing" "boolean" ("uiName" "Glazed Specularity #1", "value" 1,  "nonConnectable")
+		control "spec_glazing" "boolean" ("uiName" "Glazed Specularity #1", "value" 1, "nonConnectable")
 		}
 	control "struct_refl" "struct" ("uiName" "Reflectivity") { 
 		control "reflection_color" "color" ("uiName" "Reflection Color", "value" 1 1 1)
@@ -286,7 +302,7 @@ gui "gui_carpaint_x_elements" {
 		control "samples" "integer" ("uiName" "Glossy Reflection Sample (0 = Not Glossy)","value" 0)
 		control "glossy_spread" "scalar" ("uiName" "Glossy Reflections Spread", "value" 0.0)
 		control "max_distance" "scalar" ("uiName" "Max Distance", "value" 0.0)
-		control "single_env_sample" "boolean" ("uiName" "Single Environment Sampling", "value" off,  "nonConnectable")
+		control "single_env_sample" "boolean" ("uiName" "Single Environment Sampling", "value" off, "nonConnectable")
 		}
 	control "struct_dirt" "struct" ("uiName" "Dirty Layer (Lambertian)") { 
 		control "dirt_color" "color" ("uiName" "Dirt Color", "value" 0.3 0.3 0.3)
@@ -304,6 +320,11 @@ gui "gui_carpaint_x_elements" {
 		control "flake_refl_pass" "string" ("uiName" "Flake Refl", "value" paintFlakeRefl, "nonConnectable")
 		control "reflection_pass" "string" ("uiName" "Reflection", "value" paintReflection, "nonConnectable")
 		control "dirt_pass" "string" ("uiName" "Dirt", "value" paintDirt, "nonConnectable")
+		
+		control "extra_pass1_color" "color" ("uiName" "Extra Element Color 1", "value" 0 0 0 0)
+		control "extra_pass1" "string" ("uiName" "Extra Element Name 1", "value" paintExtra1, "nonConnectable")
+		control "extra_pass2_color" "color" ("uiName" "Extra Element Color 2", "value" 0 0 0 0)
+		control "extra_pass2" "string" ("uiName" "Extra Element Name 2", "value" paintExtra2, "nonConnectable")
 		}
 	control "struct_light" "struct" ("uiName" "Advanced Options") { 
 		control "irradiance_weight" "scalar" ("uiName" "Irradiance Weight (Indirect Illumination)", "value" 1.0)
