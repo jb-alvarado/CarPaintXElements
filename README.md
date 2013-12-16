@@ -12,7 +12,7 @@ created:  2013-12-12
 Car Paint X Elements
 =========
 
-![Car Paint X Elements]( http://www.pixelcrusher.de/files/carpaintXElements.png "CarPaintXElements")
+
 
 Download
 --------
